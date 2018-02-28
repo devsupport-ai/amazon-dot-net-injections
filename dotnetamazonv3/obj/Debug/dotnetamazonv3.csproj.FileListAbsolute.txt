@@ -40,3 +40,8 @@ C:\Users\parth\source\repos\dotnetamazonv3\dotnetamazonv3\obj\Debug\dotnetamazon
 C:\Users\parth\source\repos\dotnetamazonv3\dotnetamazonv3\obj\Debug\dotnetamazonv3.csproj.CoreCompileInputs.cache
 C:\Users\parth\source\repos\dotnetamazonv3\dotnetamazonv3\obj\Debug\dotnetamazonv3.dll
 C:\Users\parth\source\repos\dotnetamazonv3\dotnetamazonv3\obj\Debug\dotnetamazonv3.pdb
+C:\Users\parth\source\repos\dotnetamazonv3\dotnetamazonv3\bin\BouncyCastle.Crypto.dll
+C:\Users\parth\source\repos\dotnetamazonv3\dotnetamazonv3\bin\NLog.dll
+C:\Users\parth\source\repos\dotnetamazonv3\dotnetamazonv3\bin\NLogger.dll
+C:\Users\parth\source\repos\dotnetamazonv3\dotnetamazonv3\bin\NLog.xml
+C:\Users\parth\source\repos\dotnetamazonv3\dotnetamazonv3\bin\PWAINServerSideSDK-Net.dll
