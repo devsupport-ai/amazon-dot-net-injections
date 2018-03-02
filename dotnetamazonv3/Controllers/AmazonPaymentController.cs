@@ -6,13 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace dotnetamazonv3.Controllers
+namespace {{=it.project_name}}.Controllers
 {
     public class AmazonPaymentController : Controller
     {
-       private String accessKey = "AKIAJIJMTWVP5TOL7Y7Q";
-       private String secretKey = "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";
-       private String sellerId = "A1T5DRWMBFNP17";
+       private String accessKey = "{{=it.access_key}}";
+       private String secretKey = "{{=it.secret_key}}";
+       private String sellerId = "{{=it.merchant_id}}";
 
         private static MerchantConfiguration merchantConfiguration;
         private static PWAINBackendSDK pwaInBackendSDK;
@@ -39,7 +39,7 @@ namespace dotnetamazonv3.Controllers
             parameters.Add(PWAINConstants.SELLER_ORDER_ID, sellerOrderId);
             parameters.Add(PWAINConstants.ORDER_TOTAL_AMOUNT, orderTotalAmount);
             parameters.Add(PWAINConstants.ORDER_TOTAL_CURRENCY_CODE, orderTotalCurrencyCode);
-            parameters.Add(PWAINConstants.REDIRECT_URL, "http://localhost:53191/AmazonPayment/TransactionResponse");
+            parameters.Add(PWAINConstants.REDIRECT_URL, "{{=it.returnUrl}}");
             /*Set optional parameters*/
             //For testing in Sandbox mode, "false" when going live
             parameters.Add(PWAINConstants.IS_SANDBOX, "true");
