@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace dotnetamazonv3.Controllers
+namespace {{=it.project_name}}.Controllers
 {
     public class AmazonPaymentResponseController : Controller
     {
