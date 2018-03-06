@@ -6,59 +6,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace {{=it.project_name}}.Controllers
+namespace dotnetamazonv3.Controllers
 {
-    public class AmazonPaymentController : Controller
+    public class AmazonPaymentResponseController : Controller
     {
         private String sellerId = "{{=it.merchant_id}}";
         private String accessKey = "{{=it.access_key}}";
         private String secretKey = "{{=it.secret_key}}";
-       
 
         private static MerchantConfiguration merchantConfiguration;
         private static PWAINBackendSDK pwaInBackendSDK;
         private Dictionary<String, String> parameters;
 
-        //basic form for new transaction
-        public ActionResult Index()
-        {
-            return View();
-        }
 
-        //generate url for newtransaction
-        public void NewTransaction()
-        {
-            String sellerOrderId;
-            Random rn = new Random();
-            sellerOrderId = rn.Next(1, 99999999).ToString();
-            String orderTotalAmount = this.Request.Form["orderTotalAmount"];
-            String orderTotalCurrencyCode = this.Request.Form["orderTotalCurrencyCode"];
-            String customInformation = this.Request.Form["customInformation"];
-
-
-            parameters = new Dictionary<string, string>(6);
-            parameters.Add(PWAINConstants.SELLER_ORDER_ID, sellerOrderId);
-            parameters.Add(PWAINConstants.ORDER_TOTAL_AMOUNT, orderTotalAmount);
-            parameters.Add(PWAINConstants.ORDER_TOTAL_CURRENCY_CODE, orderTotalCurrencyCode);
-            parameters.Add(PWAINConstants.REDIRECT_URL, "{{=it.returnUrl}}");
-            /*Set optional parameters*/
-            //For testing in Sandbox mode, "false" when going live
-            parameters.Add(PWAINConstants.IS_SANDBOX, "true");
-            //Transaction timeout in seconds
-            parameters.Add(PWAINConstants.TRANSACTION_TIMEOUT, "1000");
-            parameters.Add(PWAINConstants.CUSTOM_INFORMATION, customInformation);
-
-            merchantConfiguration = new MerchantConfiguration.Builder().WithSellerIdValue(sellerId).WithAwsAccessKeyIdValue(accessKey).WithAwsSecretKeyIdValue(secretKey).build();
-            pwaInBackendSDK = new PWAINBackendSDK(merchantConfiguration);
-            String url = pwaInBackendSDK.GetPaymentUrl(parameters);
-
-            ViewBag.Message = url;
-
-            Response.Redirect(url);
-        }
-
-        //shows response of the transaction
-        public String TransactionResponse()
+        // GET: AmazonPaymentResponse
+        public String Index()
         {
 
             try
@@ -99,7 +61,6 @@ namespace {{=it.project_name}}.Controllers
                 return "verification failed:" + e.StackTrace;
                 //Signature verification failed
             }
-
         }
     }
 }
